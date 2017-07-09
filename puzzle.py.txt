@@ -1,0 +1,58 @@
+def moverow():
+    f = open("sample.txt")
+    g = f.readlines()
+    l = list(g)
+    t = [list(i) for i in l]
+    b = [(a, x.index(' ')) for a, x in enumerate(t) if ' ' in x]
+    return b
+
+print(moverow())
+
+def move():
+    with open("sample.txt") as f:
+        g = f.readlines()
+        l = list(g)
+        t = [list(i) for i in l]
+        m = 5
+        n = 5
+        y = 1
+        user = input("Enter your moves")
+        [(s1,s2)] = moverow()
+        print("Puzzle #", y)
+        for k in user:
+            if k == "A":
+                if s1-1 >= 0:
+                    t[s1][s2] = t[s1-1][s2]
+                    t[s1-1][s2] = ' '
+                    s1 = s1 -1
+                else:
+                    return "This puzzle has no final configuration"
+            if k == "B":
+                if s1+1 <= m-1:
+                    t[s1][s2] = t[s1+1][s2]
+                    t[s1+1][s2] ' '
+                    s1 = s1+1
+                else:
+                    return "This puzzle has no final configuration"
+            if k == "L":
+                if s2-1 >= 0:
+                    t[s1][s2] = t[s1][s2-1]
+                    t[s1][s2-1] = ' '
+                    s2 = s2-1
+                else:
+                    return "This puzzle has no final configuration"
+            if k == "R":
+                if s2+1 <= n-1:
+                    t[s1][s2] = t[s1][s2+1]
+                    t[s1][s2+1] = ' '
+                    s2 = s2+1
+                else:
+                    return "This puzzle has no final configuration"
+            if k == "O":
+                break
+    p = (''.join(str(r) for z in t for r in z))
+    return p
+
+print(move())
+
+    
