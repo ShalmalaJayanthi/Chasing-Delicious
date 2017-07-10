@@ -118,7 +118,6 @@ void display() {
         printf("|%d|\n", arr[j]);
 
     }
-
 }
 
 
