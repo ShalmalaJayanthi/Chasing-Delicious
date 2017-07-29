@@ -35,7 +35,7 @@ int main() {
 
             case 3: exit(0);
 
-            default:printf("Range is 1 to 3\n");
+            default: printf("Range is 1 to 3\n");
 
         }
 
